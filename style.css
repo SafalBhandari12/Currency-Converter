@@ -7,7 +7,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vmin;
-  width: 50vh;
   background-color: #a4ce95;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -78,7 +77,7 @@ img {
   margin-top: 2vmin;
   margin-bottom: 3vmin;
   text-align: center;
-  height: 4vmin;
+  min-height: 4vmin;
   font-size: 4vmin;
   width: 100%;
 }
