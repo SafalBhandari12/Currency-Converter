@@ -39,15 +39,17 @@ button.addEventListener("click", async (evt) => {
   } else {
     const url = `${base_url}/${from_value}.json`;
     let temp_dict = await fetch(url);
-    let dict = await temp_dict.json();
-    let converted_value = (
-      dict[from_value][to_value] * input_amount.value
-    );
-    if(converted_value >0){
+    if (temp_dict.status == 200) {
+      let dict = await temp_dict.json();
+      let converted_value = dict[from_value][to_value] * input_amount.value;
+      if (converted_value > 0) {
         converted_value = converted_value.toFixed(2);
-    }else{
+      } else {
         converted_value = converted_value.toFixed(4);
+      }
+      message_p.innerText = `${input_amount.value} ${from_value} = ${converted_value} ${to_value} `;
+    } else {
+      alert("Internal Server Error");
     }
-    message_p.innerText = `${input_amount.value} ${from_value} = ${converted_value} ${to_value} `;
   }
 });
